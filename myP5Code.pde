@@ -4,20 +4,56 @@ void setup() {
 }
 
 //🎯Variable Declarations Go Here
+r1y = 10;
+r2y = 250;
+r2Size = 50;
+r3y = 350;
+r1Speed = 1;
+timer = 0;
+x1 = 100;
+x2 = 275;
+x3 = 450;
 
 
 //🟢Draw Procedure - Runs on Repeat
 draw = function(){
  
-  background(255,255,255,0);
-  
+  background(255,255,255,);
+  //showXYPositions();
+
+
+  fill(255, 255, 255)
+    ellipse(mouseX, 200, 20, 20);
+
+
+    fill(50, 100, 255)
+    rect(x1,r1y,50,50);
+
+    fill(50, 100, 255)
+    rect(x2,r2y,r2Size,r2Size);
+
+    fill(50, 100, 255)
+    rect(x3,r3y,50,50);
 
 
 
 
+
+  timer++;
+  if (timer > 50)
+  {
+    r1Speed = random(10);
+  }
+     
+    r1y +=(r1Speed);
+    r2y -=(5);
+    r2Size ++;
+    r3y -=(r1Speed * 2);
+
+    
 
   //Show x y values when mousepressed
-  if(mousePressed){showXYPositions();}
+ showXYPositions();
 
 }
 
@@ -25,12 +61,23 @@ draw = function(){
 //Proceed with Caution (and Curiosity!)
 
 showXYPositions = function(){
-    fill(255,255,255,200)
-    rect(470,320,150,100,10)
-    fill(0,0,0)
-    textSize(30)
-    text("x = " + mouseX + "\ny = " +mouseY, 490, 360)
-    fill(255, 255, 255)
-    ellipse(mouseX, mouseY, 10, 10);
-    fill(255,255,255)
+        if (r1y > 400)
+    {
+      r1y = 10;
+      x1 = random (400);
+    }
+
+    if (r2y <100)
+    {
+      r2y = 250;
+      r2Size = 50;
+      x2 = random(400);
+    }
+
+    if (r3y < 10 )
+    {
+      r3y = 350;
+      x3 = random(400);
+    }
+
 }
